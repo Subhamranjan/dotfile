@@ -206,3 +206,7 @@ bindsym $mod+Ctrl+b exec blueman-manager
 
 # Launch Bluetooth Manager
 bindsym $mod+Shift+b exec blueman-manager
+
+# wallpaper configuration
+# before install feh (sudo apt install feh)
+exec_always --no-startup-id feh --bg-fill $HOME/subham/Pictures/1.jpg
