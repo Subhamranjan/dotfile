@@ -18,7 +18,7 @@ keymap('n', '<leader>fh', "<cmd>Telescope help_tags<CR>", opts)
 keymap('n', '<leader>e', ":Ex<CR>", opts) 
 
 -- Floating terminal
-vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>lua open_floating_terminal()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ft', ':lua require("config.floaterm").toggle_floating_terminal()<CR>', { noremap = true, silent = true })
 
 -- Auto-completion Keymaps
 keymap('i', '<C-p>', function() require'cmp'.select_prev_item() end, opts)  -- Previous completion item
