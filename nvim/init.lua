@@ -8,9 +8,12 @@ require("plugins.colors")
 
 -- ColorMyPencils("gruvbox")  -- Use "gruvbox" or any other color scheme
 
+local floaterm = require('config.floaterm') 
+
 -- Open file explorer on Neovim startup
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         vim.cmd("Ex")
     end,
 })
+
