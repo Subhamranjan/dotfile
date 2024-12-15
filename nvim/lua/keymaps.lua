@@ -36,18 +36,6 @@ keymap('n', '<leader>-', ':resize -5<CR>', opts)  -- Decrease height
 keymap('n', '<leader>/', ':vertical resize +5<CR>', opts)  -- Increase width
 keymap('n', '<leader>g', ':vertical resize -5<CR>', opts)  -- Decrease width
 
---[[
--- Window Navigation
--- Disable default vim-tmux-navigator key mappings
-vim.g.tmux_navigator_no_mappings = 1
-
--- Custom keybindings for tmux navigation inside Neovim (use hjkl for navigation)
-vim.api.nvim_set_keymap('n', 'h', ':TmuxNavigateLeft<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'j', ':TmuxNavigateDown<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'k', ':TmuxNavigateUp<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'l', ':TmuxNavigateRight<CR>', { noremap = true, silent = true })
---]]
-
 -- Move 5 lines up
 keymap('n', '<leader>5u', '5k', opts)
 -- Move 5 lines down
@@ -80,11 +68,6 @@ keymap('n', 'po', 'P', opts) -- Paste above the cursor from Neovim's default reg
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- Move selected lines down
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-
--- Move selected lines up
-vim.keymap.set("n", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
--- Move selected lines down
-vim.keymap.set("n", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Undo
 keymap('n', '<leader>u', 'u', opts) -- Undo the last change
