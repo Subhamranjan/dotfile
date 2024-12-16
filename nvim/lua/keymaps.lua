@@ -15,7 +15,7 @@ keymap('n', '<leader>fb', "<cmd>Telescope buffers<CR>", opts)
 keymap('n', '<leader>fh', "<cmd>Telescope help_tags<CR>", opts)
 
 -- File explore
-keymap('n', '<leader>e', ":Ex<CR>", opts) 
+keymap('n', '<leader>e', ":Ex<CR>", opts)
 
 -- Floating terminal
 vim.api.nvim_set_keymap('n', '<leader>ft', ':lua require("config.floaterm").toggle_floating_terminal()<CR>', { noremap = true, silent = true })
@@ -32,13 +32,9 @@ vim.keymap.set('n', '<leader>gg', 'gg', { noremap = true, silent = true })
 -- Move to the end of the file
 vim.keymap.set('n', '<leader>tt', 'G', { noremap = true, silent = true })
 
--- move to start of the word --> b 
--- move to end of the word --> e
-
 -- Split Windows
 keymap('n', '<leader>nn', ':vsplit<CR>', opts) -- Vertical split
 keymap('n', '<leader>hh', ':split<CR>', opts) -- Horizontal split
-
 -- Resize Windows
 keymap('n', '<leader>+', ':resize +5<CR>', opts)  -- Increase height
 keymap('n', '<leader>-', ':resize -5<CR>', opts)  -- Decrease height
@@ -67,6 +63,16 @@ keymap('n', '<leader>yy', '"+Y', opts) -- Yank the entire line to the clipboard
 keymap('n', '<leader>p', '"+p', opts) -- Paste below the cursor from the clipboard
 keymap('n', '<leader>pp', '"+P', opts) -- Paste above the cursor from the clipboard
 
+-- Go to the start of the line
+keymap('n', '<leader>0', '^', { noremap = true, silent = true }) -- Normal mode
+keymap('v', '<leader>0', '^', { noremap = true, silent = true }) -- Visual mode
+keymap('i', '<C-a>', '<C-o>^', { noremap = true, silent = true }) -- Insert mode
+
+-- Go to the end of the line
+keymap('n', '<leader>4', 'g_', { noremap = true, silent = true }) -- Normal mode
+keymap('v', '<leader>4', 'g_', { noremap = true, silent = true }) -- Visual mode
+keymap('i', '<C-e>', '<C-o>g_', { noremap = true, silent = true }) -- Insert mode
+
 -- Neovim's default register
 keymap('v', 'ty', 'y', opts) -- Yank to Neovim's default register
 keymap('n', 'yt', 'Y', opts) -- Yank the entire line to Neovim's default register
@@ -82,6 +88,11 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true
 vim.keymap.set("n", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- Move selected lines down
 vim.keymap.set("n", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
+-- Move selected lines up
+vim.keymap.set("i", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+-- Move selected lines down
+vim.keymap.set("i", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Undo
 keymap('n', '<leader>u', 'u', opts) -- Undo the last change
