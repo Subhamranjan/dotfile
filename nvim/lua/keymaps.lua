@@ -26,10 +26,19 @@ keymap('i', '<C-n>', function() require'cmp'.select_next_item() end, opts)  -- N
 keymap('i', '<C-y>', function() require'cmp'.confirm({ select = true }) end, opts)  -- Confirm completion
 keymap('i', '<C-Space>', function() require'cmp'.complete() end, opts)  -- Trigger completion
 
+-- Move to the start of the file
+vim.keymap.set('n', '<leader>gg', 'gg', { noremap = true, silent = true })
+
+-- Move to the end of the file
+vim.keymap.set('n', '<leader>tt', 'G', { noremap = true, silent = true })
+
+-- move to start of the word --> b 
+-- move to end of the word --> e
 
 -- Split Windows
 keymap('n', '<leader>nn', ':vsplit<CR>', opts) -- Vertical split
 keymap('n', '<leader>hh', ':split<CR>', opts) -- Horizontal split
+
 -- Resize Windows
 keymap('n', '<leader>+', ':resize +5<CR>', opts)  -- Increase height
 keymap('n', '<leader>-', ':resize -5<CR>', opts)  -- Decrease height
@@ -68,6 +77,11 @@ keymap('n', 'po', 'P', opts) -- Paste above the cursor from Neovim's default reg
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- Move selected lines down
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
+-- Move selected lines up
+vim.keymap.set("n", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+-- Move selected lines down
+vim.keymap.set("n", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Undo
 keymap('n', '<leader>u', 'u', opts) -- Undo the last change
